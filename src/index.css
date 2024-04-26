@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+  font-family: 'JK Abode';
+  src: url('./assets/abode/JKAbode-LightDemo.ttf') format('truetype');
+
+}
