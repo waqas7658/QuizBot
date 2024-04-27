@@ -6,16 +6,44 @@ import Subtract from "../../assets/Images/Subtract.png";
 import Polygon from "../../assets/Images/Polygon.png";
 import Polygon2 from "../../assets/Images/Polygon2.png";
 import Polygon3 from "../../assets/Images/Polygon3.png";
+import toast from "react-hot-toast";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
+    const navigate = useNavigate()
 
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+
         console.log(username, password)
+        // // Validate form fields
+        if (!username || !password) {
+            toast.error("Please fill in all fields");
+            return;
+        }
+
+        // Make API call using Axios
+        try {
+            const response = await axios.post("http://localhost:5000/api/user/login", {
+                userName: username,
+                password,
+            })
+            if (response.status == 200) {
+                console.log(response.data)
+                toast.success("User login Successfully")
+                localStorage.setItem("user", JSON.stringify(response?.data.user))
+                navigate("/home")
+
+            }
+
+        } catch (error) {
+            toast.error(error.message)
+        }
+
     };
 
     return (

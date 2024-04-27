@@ -2,9 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @font-face {
-  font-family: 'JK Abode';
-  src: url('./assets/abode/JKAbode-LightDemo.ttf') format('truetype');
+  font-family: "JK Abode";
+  src: url("./assets/abode/JKAbode-LightDemo.ttf") format("truetype");
+}
 
+.volkhov-regular {
+  font-family: "Volkhov";
+}
+
+.volkhov-bold {
+  font-family: "Volkhov", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.volkhov-regular-italic {
+  font-family: "Volkhov", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.volkhov-bold-italic {
+  font-family: "Volkhov", serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.hero-section {
+  background-image: url("./assets/Images/hero1.png");
 }

@@ -6,6 +6,9 @@ import Subtract from "../../assets/Images/Subtract.png";
 import Polygon from "../../assets/Images/Polygon.png";
 import Polygon2 from "../../assets/Images/Polygon2.png";
 import Polygon3 from "../../assets/Images/Polygon3.png";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const SignUp = () => {
     const [username, setUsername] = useState("");
@@ -13,9 +16,9 @@ const SignUp = () => {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
 
+    const navigate = useNavigate()
 
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         console.log(username, email, password, confirmPassword)
@@ -28,17 +31,25 @@ const SignUp = () => {
             alert("Passwords do not match");
             return;
         }
-        // // Make API call using Axios
-        // axios
-        //     .post("http://example.com/api/signup", { username, email, password })
-        //     .then((response) => {
-        //         console.log("SignUp successful:", response.data);
-        //         // Handle successful SignUp
-        //     })
-        //     .catch((error) => {
-        //         console.error("SignUp error:", error);
-        //         // Handle SignUp error
-        //     });
+        // Make API call using Axios
+        try {
+            const response = await axios.post("http://localhost:5000/api/user/signup", {
+                email,
+                userName: username,
+                password,
+                confirm_password: confirmPassword
+            })
+            if (response.status == 200) {
+                console.log(response.data)
+                toast.success("User Created Successfully")
+                navigate("/login")
+
+            }
+
+        } catch (error) {
+            toast.error(error.message)
+        }
+
     };
 
     return (
