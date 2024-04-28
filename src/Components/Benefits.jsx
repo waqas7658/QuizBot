@@ -25,7 +25,7 @@ const Benefits = () => {
     ];
 
     return (
-        <section className='bg-[#2B54FF] lg:px-24 py-16 my-10 relative'>
+        <section className='bg-[#2B54FF] lg:px-24 py-16 mt-10 relative'>
             <div>
                 <img src={Subtract2} alt="Subtract2" className=' absolute h-80 right-0 -top-20' />
             </div>
