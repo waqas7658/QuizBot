@@ -3,8 +3,8 @@ import logo from "../assets/Images/logo.png";
 const Footer = () => {
   return (
     <>
-      <section className=" px-24 pt-5">
-        <div className=" flex flex-col gap-5 justify-center items-center">
+      <section className=" lg:px-24 pt-5">
+        <div className=" flex flex-wrap flex-col gap-5 justify-center items-center">
           <p className=" font-sans text-base font-normal leading-[28px] tracking-[3.73px] text-center">
             UPSKILL FOR A BETTER FUTURE
           </p>
@@ -24,7 +24,7 @@ const Footer = () => {
         </div>
         <hr />
         <footer className="text-gray-600  ">
-          <div className="container px-5 py-8 mx-auto flex justify-between items-center ">
+          <div className="container px-5 py-8  flex flex-wrap  justify-center lg:justify-between items-center ">
             <div>
               <a className="flex title-font font-bold text-[2rem] items-center md:justify-start justify-center text-[#2B54FF] mx-4">
                 <p>SQL BOT</p>
